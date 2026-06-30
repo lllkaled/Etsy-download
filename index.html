@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Access Your Files</title>
+<meta name="robots" content="noindex" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <main class="page">
+
+    <!-- ===== LOADING ===== -->
+    <div id="state-loading" class="glass-card state-card">
+      <div class="spinner" aria-hidden="true"></div>
+      <p class="muted">Preparing your download…</p>
+    </div>
+
+    <!-- ===== NOT FOUND ===== -->
+    <div id="state-notfound" class="glass-card state-card hidden">
+      <p class="eyebrow">Hmm</p>
+      <h1 class="title">We couldn't find that product</h1>
+      <p class="muted">
+        The link you used doesn't match anything in our catalog. Head back to your
+        Etsy order page and tap "Access Your Files" again, or message us and we'll
+        send your files directly.
+      </p>
+    </div>
+
+    <!-- ===== MAIN CARD ===== -->
+    <div id="state-main" class="glass-card hidden">
+
+      <img id="logo" class="logo" src="assets/logo.png" alt="Shop logo" />
+
+      <div class="product-block">
+        <div class="product-image-wrap">
+          <img id="product-image" class="product-image" src="" alt="" />
+        </div>
+        <h1 id="product-title" class="title">Loading product…</h1>
+        <p class="subtitle">Enter your email to instantly access your download.</p>
+      </div>
+
+      <!-- ===== FORM ===== -->
+      <form id="access-form" class="form" novalidate>
+
+        <label class="field">
+          <span class="field-label">Email address</span>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          />
+          <span class="field-error" id="email-error">Please enter a valid email address.</span>
+        </label>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="consent" name="consent" />
+          <span>Keep me updated with new products &amp; exclusive offers.</span>
+        </label>
+
+        <button type="submit" id="submit-btn" class="btn btn-primary">
+          <span class="btn-label">Access My Files</span>
+          <span class="btn-spinner hidden" aria-hidden="true"></span>
+        </button>
+
+        <p class="form-error hidden" id="form-error">
+          Something went wrong sending your request. Please check your connection and try again.
+        </p>
+
+        <p class="fine-print">
+          We respect your privacy. Your email is only used to deliver this product
+          and, if you opt in, occasional updates — unsubscribe anytime.
+        </p>
+      </form>
+
+      <!-- ===== SUCCESS ===== -->
+      <div id="success-block" class="success-block hidden">
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 120 120" width="56" height="56">
+            <circle cx="60" cy="60" r="56" />
+            <path d="M36 62 L52 78 L86 42" />
+          </svg>
+        </div>
+        <h2 class="success-title">Your files are ready</h2>
+        <p class="muted" id="buyer-id-line">Buyer ID: —</p>
+        <a id="download-btn" class="btn btn-primary btn-download" href="#" target="_blank" rel="noopener">
+          <span class="btn-label">Download Now</span>
+        </a>
+        <p class="fine-print">
+          A confirmation email with your download link and Buyer ID is on its way —
+          check your inbox (and spam folder, just in case).
+        </p>
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <p>Need help? Message us on Etsy and we'll sort it out right away.</p>
+    </footer>
+
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
