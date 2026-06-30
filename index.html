@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Access Your Files</title>
+<meta name="robots" content="noindex" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-texture" aria-hidden="true"></div>
+
+  <main class="page">
+
+    <!-- ===== LOADING / PRODUCT NOT FOUND ===== -->
+    <div id="state-loading" class="card state-card">
+      <div class="spinner" aria-hidden="true"></div>
+      <p class="muted">Preparing your download…</p>
+    </div>
+
+    <div id="state-notfound" class="card state-card hidden">
+      <p class="eyebrow">Hmm</p>
+      <h1 class="title">We couldn't find that product</h1>
+      <p class="muted">
+        The link you used doesn't match a product in our catalog. Please return to your
+        Etsy order page and click the "Access Your Files" button again, or message us
+        directly and we'll send your files right over.
+      </p>
+    </div>
+
+    <!-- ===== MAIN CARD ===== -->
+    <div id="state-main" class="card hidden">
+
+      <img id="logo" class="logo" src="assets/logo.png" alt="Shop logo" />
+
+      <div class="product-block">
+        <img id="product-image" class="product-image" src="" alt="" />
+        <h1 id="product-title" class="title">Loading product…</h1>
+        <p class="subtitle">Enter your email to instantly access your download.</p>
+      </div>
+
+      <!-- ===== FORM STATE ===== -->
+      <form id="access-form" class="form" novalidate>
+
+        <label class="field">
+          <span class="field-label">Email address</span>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          />
+          <span class="field-error" id="email-error">Please enter a valid email address.</span>
+        </label>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="consent" name="consent" />
+          <span>Keep me updated with new products &amp; exclusive offers.</span>
+        </label>
+
+        <button type="submit" id="submit-btn" class="btn btn-primary">
+          <span class="btn-label">Access My Files</span>
+          <span class="btn-spinner hidden" aria-hidden="true"></span>
+        </button>
+
+        <p class="form-error hidden" id="form-error">
+          Something went wrong sending your request. Please check your connection and try again.
+        </p>
+
+        <p class="fine-print">
+          We respect your privacy. Your email is only used to deliver this product
+          and, if you opt in, occasional updates — unsubscribe anytime.
+        </p>
+      </form>
+
+      <!-- ===== SUCCESS STATE ===== -->
+      <div id="success-block" class="success-block hidden">
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 120 120" width="64" height="64">
+            <circle cx="60" cy="60" r="56" />
+            <path d="M36 62 L52 78 L86 42" />
+          </svg>
+        </div>
+        <h2 class="success-title">Your files are ready!</h2>
+        <p class="muted">Click below to download your purchase instantly.</p>
+        <a id="download-btn" class="btn btn-primary btn-download" href="#" target="_blank" rel="noopener">
+          <span class="btn-label">Download Now</span>
+        </a>
+        <p class="fine-print">
+          Tip: bookmark this page or save the file to your device — you can come back
+          and download it again anytime.
+        </p>
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <p>Need help? Message us on Etsy and we'll sort it out right away.</p>
+    </footer>
+
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
